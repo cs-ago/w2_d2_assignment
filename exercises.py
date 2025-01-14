@@ -20,5 +20,12 @@ for measurement in seattle_data:
     seattle_total_monthly_precipitation[month_index] += measurement['value']
 
 #EXERCISE 1.4: Save the results to a json file
+output_data = {
+    'Seattle': {
+        'station': 'GHCND:US1WAKG0038',
+        'state': 'WA',
+        'total_monthly_precipitation': seattle_total_monthly_precipitation
+    }
+}
 with open('results.json', 'w', encoding='utf-8') as file:
-    json.dump(seattle_total_monthly_precipitation, file, indent=4)
+    json.dump(output_data, file, indent=4)
